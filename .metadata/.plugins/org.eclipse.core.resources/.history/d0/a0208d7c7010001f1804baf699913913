@@ -1,0 +1,5 @@
+package com.movie.stream.controller;
+
+public class MovieDataController {
+
+}

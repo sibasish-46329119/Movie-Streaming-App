@@ -1,0 +1,19 @@
+package com.movie.stream.service;
+
+import java.util.List;
+
+import com.movie.stream.entity.MoviesData;
+
+
+public interface MovieDataService {
+
+MoviesData createVideoData(MoviesData videoData);
+	
+MoviesData updateVideoData(MoviesData videoData, Integer id) throws Exception;
+	
+MoviesData getVideoData(String category);
+	
+MoviesData videoById(Integer id);
+
+	List<MoviesData> getAllVideos();
+}

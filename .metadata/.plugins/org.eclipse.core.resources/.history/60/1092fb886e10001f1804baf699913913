@@ -1,0 +1,5 @@
+package com.movie.stream.service.impl;
+
+public class MovieDataServiceImpl {
+
+}
