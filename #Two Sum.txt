@@ -1,0 +1,71 @@
+#Two Sum
+
+def twoSum(nums, targetSum):
+    left = 0
+    right = len(nums) - 1
+    
+    while left < right:
+        sum = nums[left] + nums[right]
+        
+        if sum == targetSum:
+            return left, right 
+        elif sum < targetSum:
+            left += 1
+        else:
+            right -= 1
+    
+    return None
+
+nums = list(map(int, input("Enter list of numbers separated by spaces: ").split()))
+targetSum = int(input("Enter the target value: "))
+nums.sort()
+res = twoSum(nums, targetSum)
+print(res)
+
+#Binary Search
+
+def binarySearch(nums, targetValue):
+    left = 0
+    right = len(nums) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        if nums[mid] == targetValue:
+            return mid
+        elif nums[mid] < targetValue:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+
+
+nums = list(map(int, input("Enter sorted array separated by space ").split()))
+targetValue = int(input("Enter the target value: "))
+res = binarySearch(nums, targetValue)
+print(res)
+
+#Anagram Check
+
+def are_anagrams_sort(str1, str2):
+    if len(str1) != len(str2):
+        return False
+    return sorted(str1) == sorted(str2)
+
+#Longest Substring without repeating characters
+
+def lengthOfLongestSubstring(s):
+    charSet = set()
+    left = 0
+    maxLength = 0
+
+    for right in range(len(s)):
+        while s[right] in charSet:
+            charSet.remove(s[left])
+            left += 1
+        charSet.add(s[right])
+        maxLength = max(maxLength, right - left + 1)
+
+    return maxLength
+
+str = input("Enter the string to check longest substring: ")
+print(lengthOfLongestSubstring(str))
